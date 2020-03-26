@@ -13,7 +13,7 @@ describe("GET /hello - hello world", () => {
 		.end((err, res) => {
 			should.not.exist(err);
 			res.status.should.equal(200);
-			res.body.value.should.equal("Hello");
+			res.body.value.should.equal("hello");
 			done();
 		});
 	});
