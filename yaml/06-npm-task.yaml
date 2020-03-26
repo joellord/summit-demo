@@ -5,14 +5,14 @@ metadata:
 spec:
   inputs: 
     resources:
-      - name: summit-demo-repo
+      - name: source
         type: git
   steps:
     - name: install
       image: node:12
       command: ["npm", "install"]
-      workingDir: /workspace/summit-demo-repo
+      workingDir: /workspace/source/app
     - name: test
       image: node:12
       command: ["npm", "test"]
-      workingDir: /workspace/summit-demo-repo
+      workingDir: /workspace/source/app

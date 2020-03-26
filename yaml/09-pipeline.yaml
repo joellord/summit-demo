@@ -18,9 +18,6 @@ spec:
         inputs:
           - name: source
             resource: app-git
-        outputs:
-          - name: image
-            resource: app-image
     - name: build
       taskRef:
         name: s2i-nodejs
