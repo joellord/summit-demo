@@ -1,0 +1,17 @@
+{
+  "name": "summit-demo",
+  "version": "1.0.0",
+  "description": "A demo app to be used at the Red Hat Virtual Summit 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/.bin/mocha --exit ./tests"
+  },
+  "author": "Joel Lord <jlord@redhat.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "mocha": "^7.1.1"
+  }
+}

@@ -1,0 +1,32 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: summit-demo
+  name: summit-demo
+spec:
+  replicas: 1
+  selector:
+    app: summit-demo
+    deploymentconfig: summit-demo
+  template:
+    metadata:
+      labels:
+        app: summit-demo
+        deploymentconfig: summit-demo
+    spec:
+      containers:
+      - image: summit-demo:latest
+        imagePullPolicy: Always
+        name: summit-demo
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+  triggers:
+  - imageChangeParams:
+      containerNames:
+      - summit-demo
+      from:
+        kind: ImageStreamTag
+        name: summit-demo:latest
+    type: ImageChange
