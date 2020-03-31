@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
-  name: nodejs-ci
+  name: nodejs-lint
 spec:
   inputs: 
     resources:
@@ -16,7 +16,11 @@ spec:
       image: node:12
       command: ["npm", "install"]
       workingDir: /workspace/source/app
-    - name: test
+    - name: audit
       image: node:12
-      command: ["npm", "test"]
+      command: ["npm", "audit"]
+      workingDir: /workspace/source/app
+    - name : lint
+      image: node:12
+      command: ["npm", "run", "lint"]
       workingDir: /workspace/source/app
