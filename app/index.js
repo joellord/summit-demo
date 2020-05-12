@@ -9,7 +9,7 @@ app.get("/hello", (req, res) => {
 });
 
 app.get("/addtwo/:num", (req, res) => {
-  res.send({ value: parseInt(req.params.num) + 2 }).status(200);
+  res.send({ value: parseInt(req.params.num, 10) + 2 }).status(200);
 });
 
 app.get("/error", (req, res) => {
@@ -17,7 +17,7 @@ app.get("/error", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening to port ${PORT}`);
+  console.log(`Server listening to port ${PORT}`); // eslint-disable-line no-console
 });
 
 module.exports = app;

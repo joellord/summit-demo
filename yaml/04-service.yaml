@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: summit-demo
-  name: summit-demo
+    app: pipeline-demo
+  name: pipeline-demo
 spec:
   ports:
   - name: 8080-tcp
@@ -11,5 +11,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: summit-demo
-    deploymentconfig: summit-demo
+    app: pipeline-demo
+    deploymentconfig: pipeline-demo
