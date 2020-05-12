@@ -13,7 +13,7 @@ app.get("/addtwo/:num", (req, res) => {
 });
 
 app.get("/addthree/:num", (req, res) => {
-  res.send({value: parseInt(req.params.num, 10) + 3}).status(200);
+  res.send({ value: parseInt(req.params.num, 10) + 3 }).status(200);
 });
 
 app.get("/error", (req, res) => {
