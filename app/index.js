@@ -12,6 +12,10 @@ app.get("/addtwo/:num", (req, res) => {
   res.send({ value: parseInt(req.params.num, 10) + 2 }).status(200);
 });
 
+app.get("/addthree/:num", (req, res) => {
+  res.send({value: parseInt(req.params.num, 10) + 3}).status(200);
+});
+
 app.get("/error", (req, res) => {
   res.send("Error!").status(500);
 });
