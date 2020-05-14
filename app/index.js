@@ -22,21 +22,22 @@ let live = true;
 const livePromise = () => new Promise((resolve, reject) => {
   // setTimeout(() => {
   //   // Check systems
-    if (live) resolve();
-    else reject("died");
+  console.log(`Systems are live: ${live}`);
+  if (live) resolve();
+  else reject("died");
   // }, 500);
 });
 const liveCheck = new health.LivenessCheck("liveCheck", livePromise);
 healthCheck.registerLivenessCheck(liveCheck);
 
-const shutdownPromise = () => new Promise(function (resolve, _reject) {
-  setTimeout(function () {
-    console.log('DONE!');
-    resolve();
-  }, 10);
-});
-let shutdownCheck = new health.ShutdownCheck("shutdownCheck", shutdownPromise);
-healthCheck.registerShutdownCheck(shutdownCheck);
+// const shutdownPromise = () => new Promise(function (resolve, _reject) {
+//   setTimeout(function () {
+//     console.log('DONE!');
+//     resolve();
+//   }, 10);
+// });
+// let shutdownCheck = new health.ShutdownCheck("shutdownCheck", shutdownPromise);
+// healthCheck.registerShutdownCheck(shutdownCheck);
 
 // const shutdownPromise = () => new Promise((resolve, reject) => {
 //   setTimeout(() => {
@@ -52,9 +53,10 @@ healthCheck.registerShutdownCheck(shutdownCheck);
 // });
 
 setInterval(() => {
-  if (Math.random() * 100 > 1) {
+  if (Math.random() * 100 > 75) {
     // Crash
     live = false;
+    console.log("Boom")
   }
 }, 10000);
 
