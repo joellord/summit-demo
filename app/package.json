@@ -11,6 +11,7 @@
   "author": "Joel Lord <jlord@redhat.com>",
   "license": "MIT",
   "dependencies": {
+    "@cloudnative/health-connect": "^2.1.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "eslint": "^6.8.0",
