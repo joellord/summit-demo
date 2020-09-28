@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: simple-param-example
+spec:
+  params:
+    - name: who
+      description: Name of the person to say hello to
+      default: World
+      type: string
+  steps:
+    - name: sayhellotosomeone
+      image: ubuntu
+      command: 
+        - /bin/bash
+      args: ["-c", "echo", "Hello $(params.who)"]

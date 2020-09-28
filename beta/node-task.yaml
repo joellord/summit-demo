@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: node-task
+spec:
+  steps:
+    - name: install
+      image: node:$(params.version)
+      command:
+        - /bin/bash
+      args: ['-c', 'echo hello world']

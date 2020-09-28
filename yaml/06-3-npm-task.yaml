@@ -1,0 +1,37 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: npm-audit
+spec:
+  inputs: 
+    resources:
+      - name: source
+        type: git
+  steps:
+    - name: install
+      image: node:12
+      command: ["npm", "install"]
+      workingDir: /workspace/source/app
+    - name: audit
+      image: node:12
+      command: ["npm", "audit"]
+      workingDir: /workspace/source/app
+---
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: npm-test
+spec:
+  inputs: 
+    resources:
+      - name: source
+        type: git
+  steps:
+    - name: install
+      image: node:12
+      command: ["npm", "install"]
+      workingDir: /workspace/source/app
+    - name: audit
+      image: node:12
+      command: ["npm", "run", "test"]
+      workingDir: /workspace/source/app

@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: simple-param-example-run
+spec:
+  params:
+    - name: who
+      value: Joel
+  taskRef:
+    name: simple-param-example
